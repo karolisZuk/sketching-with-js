@@ -73,6 +73,20 @@ class Agent {
     this.pos.y += this.vel.y;
   }
 
+  wrap(width, height) {
+    if (this.pos.x > width) {
+      this.pos.x = 0;
+    } else if (this.pos.x < 0) {
+      this.pos.x = width;
+    }
+
+    if (this.pos.y > height) {
+      this.pos.y = 0;
+    } else if (this.pos.y < 0) {
+      this.pos.y = height;
+    }
+  }
+
   bounce(width, height) {
     if (this.pos.x <= 0 || this.pos.x >= width) {
       this.vel.x *= -1;
